@@ -6,9 +6,17 @@ Compiled log library in C++11.
 
 - logging for:
     - syslog
-    - event logging
-    - console logging
+    - event
+    - console
     - custom logging(TODO)
 - formatting
 - multithreading logging
 - environment variables
+
+### Get Started
+
+```shell
+$ git clone https://github.com/isdanni/log-bst.git
+$ cd log-bst
+$ cmake .
+```
