@@ -3,7 +3,11 @@
 #endif
 
 #include <log-bst/common/common.h>
-#include <log-bst/fmt/fmt_bin.h>
-#include <log-bst/fmt/fmt.h>
+#include <log-bst/pool/base_pool.h>
+#include <log-bst/pool/pool.h>
+#include <log-bst/runtime/api.h>
+#include <log-bst/runtime/buffer.h>
+
+#include <mutex>
 
 template class LOG__BST log::pool::base_pool<std::mutex>;
