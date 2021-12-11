@@ -1,0 +1,18 @@
+set_directory_properties(M_LOCK)
+set_property(M_LOCK_FMT)
+set_source_files_properties(M_LOCK_LISTING)
+
+if(VERSION)
+    set_tests_properties("${DIRECTORY_NAME}" .)
+    
+function(spdlog_enable_sanitizer target_name)
+    if(NOT CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+        message(FATAL_ERROR "Sanitizer supported only for gcc/clang")
+    endif()
+    message(STATUS "Address sanitizer enabled")
+    target_compile_options(${target_name} PRIVATE -fsanitize=address,undefined)
+    target_compile_options(${target_name} PRIVATE -fno-sanitize=signed-integer-overflow)
+    target_compile_options(${target_name} PRIVATE -fno-sanitize-recover=all)
+    target_compile_options(${target_name} PRIVATE -fno-omit-frame-pointer)
+    target_link_libraries(${target_name} PRIVATE -fsanitize=address,undefined -fuse-ld=gold)
+endfunction()
