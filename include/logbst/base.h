@@ -12,4 +12,5 @@
 
 
 #ifdef LOG_BST_LIB
+#include <logbst/api.h>
 #endif
